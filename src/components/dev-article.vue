@@ -73,8 +73,15 @@
           </MenuItem>
         </Menu>
       </Sider>
-      <Content>
-
+      <Content class="content" :class="{ 'content-expand': isCollapsed }">
+        <Breadcrumb>
+          <BreadcrumbItem to="/">Home</BreadcrumbItem>
+          <BreadcrumbItem to="/app">Apps</BreadcrumbItem>
+          <BreadcrumbItem>iView</BreadcrumbItem>
+        </Breadcrumb>
+        <Card style="margin-top: 16px;">
+          <slot></slot>
+        </Card>
       </Content>
     </Layout>
 
@@ -137,5 +144,14 @@ export default {
   }
   .sider-hide .ivu-menu-item span{
     display: none;
+  }
+  .content{
+    margin-left: 240px;
+    margin-top: 60px;
+    padding: 16px;
+    transition: all .2s ease-in-out;
+  }
+  .content-expand{
+    margin-left: 64px;
   }
 </style>
