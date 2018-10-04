@@ -73,15 +73,8 @@
           </MenuItem>
         </Menu>
       </Sider>
-      <Content class="content" :class="{ 'content-expand': isCollapsed }">
-        <Breadcrumb>
-          <BreadcrumbItem to="/">Home</BreadcrumbItem>
-          <BreadcrumbItem to="/app">Apps</BreadcrumbItem>
-          <BreadcrumbItem>iView</BreadcrumbItem>
-        </Breadcrumb>
-        <Card style="margin-top: 16px;">
-          <slot></slot>
-        </Card>
+      <Content class="content" :class="{ 'content-expand': isCollapsed }">       
+        <slot></slot>
       </Content>
     </Layout>
 
