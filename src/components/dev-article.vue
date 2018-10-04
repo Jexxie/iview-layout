@@ -57,8 +57,21 @@
       </Row>
     </Header>
     <Layout>
-      <Sider>
-
+      <Sider class="sider" width="240" collapsible v-model="isCollapsed" :class="{ 'sider-hide': isCollapsed }">
+        <Menu class="sider-menu" theme="dark" active-name="option2">
+          <MenuItem name="option1">
+            <Icon type="ios-search"></Icon>
+            <span>Option 1</span>
+          </MenuItem>
+          <MenuItem name="option2">
+            <Icon type="ios-apps"></Icon>
+            <span>Option 2</span>
+          </MenuItem>
+          <MenuItem name="option3">
+            <Icon type="ios-bookmark"></Icon>
+            <span>Option 3</span>
+          </MenuItem>
+        </Menu>
       </Sider>
       <Content>
 
@@ -78,7 +91,8 @@ export default {
     return {
       activeName: this.$route.path,
       count: 2,
-      openTheme: false
+      openTheme: false,
+      isCollapsed: false
     }
   },
   computed: {},
@@ -109,6 +123,19 @@ export default {
     height: 200px;
   }
   .ivu-menu-horizontal.ivu-menu-light:after{
+    display: none;
+  }
+  .sider{
+    position: fixed;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    z-index: 1;
+  }
+  .sider-menu{
+    margin-top: 60px;
+  }
+  .sider-hide .ivu-menu-item span{
     display: none;
   }
 </style>
